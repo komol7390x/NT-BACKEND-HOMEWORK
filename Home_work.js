@@ -25,4 +25,5 @@ const anotherTeacher = { name: "Karim", subject: "Fizika" };
 teacher.introduce(); //o'zini chaqirish;
 teacher.introduce.call(anotherTeacher);  //anotherTeacher orqali chaqirish;
 // ---------------------------------------------------------
-// TASK-4
+// APPLY
+// TASK-1
