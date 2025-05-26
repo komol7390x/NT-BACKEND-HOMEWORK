@@ -9,6 +9,5 @@ const user = { name: "Ali" };
 function introduce(age, job) {
     console.log(`Men ${this.name}, yoshim ${age}, kasbim ${job}.`);
 }
-
-const person = { name: "Shahzod" };
-
+const person = { name: "Shahzod"};
+introduce.call(person,24,"Developer")
