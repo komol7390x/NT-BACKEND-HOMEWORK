@@ -108,18 +108,30 @@ console.log(str6.repeat(3));
 // ----------------------------------
 // task-30
 let num6 = 7;
-console.log(num6.padStart(3));
+console.log(str2.padStart(8,"b"));
 // ----------------------------------
 // task-31
-
+console.log(str2.padEnd(8,"a"));
 // ----------------------------------
 // task-32
-
+if (str2.endsWith("3")) {
+    console.log("Ha");
+} else {
+    console.log("Yoq");
+}
 // ----------------------------------
 // task-33
-
+if (str2.endsWith("m")) {
+    console.log("Ha");
+} else {
+    console.log("Yoq");
+}
 // ----------------------------------
 // task-34
-
+let str7 = "Salom ";
+let str9="Dunyo"
+console.log(str7.concat(str9));
 // ----------------------------------
 // task-35
+let str8 = "qwertryqwwer";
+console.log(str8.lastIndexOf("w"));
