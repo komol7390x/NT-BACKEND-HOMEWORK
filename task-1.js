@@ -1,4 +1,3 @@
-@ -1, 83 + 0, 0 @@
     // CALL
     // TASK-1
     function greet() {
