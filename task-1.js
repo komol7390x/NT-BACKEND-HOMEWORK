@@ -1,8 +1,8 @@
-// CALL
-// TASK-1
-function greet() {
-    console.log(`Salom, mening ismim ${this.name}`);
-}
+    // CALL
+    // TASK-1
+    function greet() {
+        console.log(`Salom, mening ismim ${this.name}`);
+    }
 const user = { name: "Ali" };
 (greet.call(user));
 // ---------------------------------------------------------
@@ -10,7 +10,7 @@ const user = { name: "Ali" };
 function introduce(age, job) {
     console.log(`Men ${this.name}, yoshim ${age}, kasbim ${job}.`);
 }
-const person = { name: "Shahzod"};
+const person = { name: "Shahzod" };
 introduce.call(person, 24, "Developer")
 // ---------------------------------------------------------
 // TASK-3
@@ -69,7 +69,7 @@ function introduce(age, job) {
     console.log(`Men ${this.name}, yoshim ${age}, kasbim ${job}.`);
 }
 const person1 = { name: "Shahzod" };
-let res2 = introduce.bind(person1,34,"Bog'bon")
+let res2 = introduce.bind(person1, 34, "Bog'bon")
 res2()
 // ---------------------------------------------------------
 // TASK-3
@@ -79,5 +79,5 @@ const mathOperations = {
     }
 };
 const calculator = { operation: "Qo'shish" };
-let res3 =mathOperations.add.bind(calculator,3,4)
+let res3 = mathOperations.add.bind(calculator, 3, 4)
 res3()
