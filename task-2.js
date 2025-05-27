@@ -1,3 +1,4 @@
+@ -1, 137 + 0, 0 @@
 // Number
 // task-1
 let num1 = 5.33234
@@ -19,13 +20,13 @@ let str2 = "3.14m"
 console.log(parseFloat(str2));
 // ----------------------------------
 // task-6
-let str3="QweRtY"
+let str3 = "QweRtY"
 if (Number.isNaN != str3) {
     console.log("Bu son emas");
 }
 // ----------------------------------
 // task-7
-let num3 =Infinity
+let num3 = Infinity
 if (num3 != isFinite) {
     console.log("Bu cheksiz son!");
 }
@@ -35,7 +36,7 @@ let num4 = -125;
 console.log(Math.abs(num4));
 // ----------------------------------
 // task-9
-console.log(Math.pow(2,9));
+console.log(Math.pow(2, 9));
 // ----------------------------------
 // task-10
 console.log(Math.sqrt(81));
@@ -55,13 +56,13 @@ let str4 = "      mnoga      ";
 console.log(str4.trim());
 // ----------------------------------
 // task-15
-console.log(str2.slice(0,2));
+console.log(str2.slice(0, 2));
 // ----------------------------------
 // task-16
-console.log(str3.substring(5,2));
+console.log(str3.substring(5, 2));
 // ----------------------------------
 // task-17
-console.log(str3.replace("Qwe","Hello "));
+console.log(str3.replace("Qwe", "Hello "));
 // ----------------------------------
 // task-18
 console.log(str3.indexOf("Q"));
@@ -108,10 +109,10 @@ console.log(str6.repeat(3));
 // ----------------------------------
 // task-30
 let num6 = 7;
-console.log(str2.padStart(8,"b"));
+console.log(str2.padStart(8, "b"));
 // ----------------------------------
 // task-31
-console.log(str2.padEnd(8,"a"));
+console.log(str2.padEnd(8, "a"));
 // ----------------------------------
 // task-32
 if (str2.endsWith("3")) {
@@ -129,7 +130,7 @@ if (str2.endsWith("m")) {
 // ----------------------------------
 // task-34
 let str7 = "Salom ";
-let str9="Dunyo"
+let str9 = "Dunyo"
 console.log(str7.concat(str9));
 // ----------------------------------
 // task-35
