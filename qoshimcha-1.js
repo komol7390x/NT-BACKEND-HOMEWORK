@@ -33,7 +33,7 @@ function toKey(obj) {
     return map1
 }
 let obj1 = [{ id: 1, score: 80 }, { id: 2, score: 75 }, { id: 1, score: 90 }, { id: 2, score: 85 }];
-console.log(toKey(obj1));
+// console.log(toKey(obj1));
 // -------------------------------------------------
 // TASK-3
 function findText(arr) {
