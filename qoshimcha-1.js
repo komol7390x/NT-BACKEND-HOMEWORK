@@ -1,6 +1,7 @@
+// @ -1, 55 + 0, 0 @@
 // TASK-1
 function countTrue(arr) {
-    return arr.filter((x) => x == true).reduce((acc, item) => (acc += +item),"").length
+    return arr.filter((x) => x == true).reduce((acc, item) => (acc += +item), "").length
 }
 console.log(countTrue([false, false, false, false]));
 console.log(countTrue([true, false, false, true, true]));
@@ -8,14 +9,14 @@ console.log(countTrue([]));
 // ------------------------------------------------------------------------------------------------------
 // TASK-2
 function multiply(arr, mult) {
-    return arr.map(x=>x*mult)
+    return arr.map(x => x * mult)
 }
 console.log(multiply([1, 2, 3], 2));
-console.log(multiply([4, 6, 5],10));
+console.log(multiply([4, 6, 5], 10));
 // ------------------------------------------------------------------------------------------------------
 // TASK-3
 function sumOfCubes(arr) {
-    return arr.map(x=>x**3).reduce((acc,item)=>acc+=item)
+    return arr.map(x => x ** 3).reduce((acc, item) => acc += item)
 }
 console.log(sumOfCubes([3, 4, 5]));
 console.log(sumOfCubes([2]));
@@ -42,7 +43,7 @@ function chatroomStatus(arr) {
     } else if (arr.length == 2) {
         return `${arr[0]} and ${arr[1]}`
     } else {
-        return `${arr[0]},${arr[1]} and ${arr.length-2} more online`
+        return `${arr[0]},${arr[1]} and ${arr.length - 2} more online`
     }
 }
 console.log(chatroomStatus([]));
