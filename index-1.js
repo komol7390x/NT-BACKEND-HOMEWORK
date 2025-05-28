@@ -74,12 +74,13 @@ const map4 = new Map([
 // --------------------------------------------------------
 // TASK-6
 function findNumber(map) {
+    let map2=new Map()
     for (let [key, val] of map) {
         if (typeof val == "number") {
-            map.set(key,val*2)
+            map2.set(key,val*2)
         }
     }
-    return map
+    return map2
 }
 const num2 = new Map([
     ['a', 10],
@@ -99,7 +100,44 @@ function changeValue(map) {
     return map2
 }
 const map5 = new Map([["x", 1], ["y", 2], ["z", 3]]);
-console.log(changeValue(map5));
+// console.log(changeValue(map5));
 // --------------------------------------------------------
 // TASK-8
-
+function countKey(map) {
+    let count = 0;
+    for (let key of map) {
+        count++
+    }
+    return count
+}
+// console.log(countKey(map5));
+// --------------------------------------------------------
+// TASK-9
+function checkNumber(map) {
+    let map2 = new Map();
+    for (let [key, val] of map) {
+        if (val % 2 == 0) {
+            map2.set(key,val)
+        }
+    }
+    return map2
+}
+const map6 = new Map([
+    ['a', 10],
+    ['b', 15],
+    ['c', 8],
+    ['e', 4],
+    ['d', 6],
+    ['e', 7]
+]);
+// console.log(checkNumber(map6));
+// --------------------------------------------------------
+// TASK-10
+function sortDate(map) {
+    let map2 = []
+    map2 = [...map].sort()
+    let map3 = new Map(map2)
+    return map3
+}
+const data1 = new Map([['2023-06-01', 100], ['2021-01-01', 80]]);
+console.log(sortDate(data1));
