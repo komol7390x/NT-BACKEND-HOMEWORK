@@ -140,4 +140,4 @@ function sortDate(map) {
     return map3
 }
 const data1 = new Map([['2023-06-01', 100], ['2021-01-01', 80]]);
-console.log(sortDate(data1));
+// console.log(sortDate(data1));
