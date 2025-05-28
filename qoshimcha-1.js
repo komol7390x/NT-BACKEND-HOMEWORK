@@ -78,4 +78,4 @@ function intersection(arr1, arr2) {
 }
 let arr4 = [1, 2, 2, 3];
 let arr5 = [2, 2, 4, 3];
-console.log(intersection(arr4,arr5));
+// console.log(intersection(arr4,arr5));
