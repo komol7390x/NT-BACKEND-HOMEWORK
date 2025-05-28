@@ -16,17 +16,24 @@ let str1 = "programming";
 // -------------------------------------------------
 // TASK-2
 function toKey(obj) {
-    let map = new Map();
+    let map1 = new Map();
+    let map2=new Map()
     for (let key of obj) {
-        if (!(map.has(key.id))) {
-            map.set(key.id, key.score)
-            continue
-        }map.set(key.id,map.get(key.id)+key.score)
+        if (!(map1.has(key.id))) {
+            map1.set(key.id, key.score)
+            map2.set(key.id,1)
+        } else {
+            map1.set(key.id, map1.get(key.id) + key.score); 
+            map2.set(key.id,map2.get(key.id)+1)
+        }
     }
-    return map
+    for (let key of map1) {
+        map1.set(key[0],map1.get(key[0])/map2.get(key[0]))
+    }
+    return map1
 }
 let obj1 = [{ id: 1, score: 80 }, { id: 2, score: 75 }, { id: 1, score: 90 }, { id: 2, score: 85 }];
-// console.log(toKey(obj1));
+console.log(toKey(obj1));
 // -------------------------------------------------
 // TASK-3
 function findText(arr) {
@@ -71,4 +78,4 @@ function intersection(arr1, arr2) {
 }
 let arr4 = [1, 2, 2, 3];
 let arr5 = [2, 2, 4,3];
-console.log(intersection(arr4,arr5));
+// console.log(intersection(arr4,arr5));
