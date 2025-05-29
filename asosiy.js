@@ -98,9 +98,17 @@ const user6 = {
     }
 };
 const { name1, age, address: { city, country } } = user6;
-console.log(name1,age,city);
+// console.log(name1,age,city);
 // ----------------------------------------------
 // TASK-6
+const products = ["Noutbuk", "Telefon", "Planshet", "Smartwatch"];
+const [firstProduct, secondProduct, ...otherProducts] = products;
+console.log(firstProduct);
+console.log(secondProduct);
+console.log(otherProducts);
+
+
+
 
 
 
