@@ -18,9 +18,9 @@ function getSubscriptionDays(user){
         return "User not found" 
     }
 }
-console.log(getSubscriptionDays(user1));
+// console.log(getSubscriptionDays(user1));
 user2 = null;
-console.log(getSubscriptionDays(user2));
+// console.log(getSubscriptionDays(user2));
 // ----------------------------------------------
 // TASK-2
 let user3 = {
@@ -41,11 +41,67 @@ function getPassword(user) {
 } 
 map2.set(user4, "1235");
 map2.set(user3, "qwerty123");
-console.log(getPassword(user3));
-console.log(getPassword(user4));
+// console.log(getPassword(user3));
+// console.log(getPassword(user4));
 // ----------------------------------------------
 // TASK-3
 let user5 = {
     name: "Sardor",
-    age:22
+    age: 22
+};
+let set2 = new WeakSet();
+set2.add(user5);
+set2.add(user4)
+function isLoggedIn(user) {
+    return set2.has(user)
 }
+// console.log(isLoggedIn(user4));
+user4 = null;
+// console.log(isLoggedIn(user4));
+// ----------------------------------------------
+// TASK-4
+let user11={
+    name: "Abdurashid",
+    masseage:"Salom Dunyo"
+}
+let user12 = {
+    name: "Saloh",
+    masseage:""
+}
+let user13 = {
+    name: "Abdurashid",
+    masseage: "Hello"
+}
+let set3 = new WeakSet();
+set3.add(user11).add(user12).add(user13)
+function hasSentMessage(user) {
+    if (set3.has(user)) {
+        if (user.masseage.length > 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+    return false
+}
+// console.log(hasSentMessage(user11));
+// console.log(hasSentMessage(user12));
+// console.log(hasSentMessage(user13));
+// ----------------------------------------------
+// TASK-5
+const user6 = {
+    name1: "Ali",
+    age: 25,
+    address: {
+        city: "Toshkent",
+        country: "O‘zbekiston"
+    }
+};
+const { name1, age, address: { city, country } } = user6;
+console.log(name1,age,city);
+// ----------------------------------------------
+// TASK-6
+
+
+
+
