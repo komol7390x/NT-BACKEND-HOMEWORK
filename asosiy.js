@@ -94,7 +94,7 @@ const user6 = {
     age: 25,
     address: {
         city: "Toshkent",
-        country: "O‘zbekiston"
+        country: "O'zbekiston"
     }
 };
 const { name1, age, address: { city, country } } = user6;
@@ -106,6 +106,35 @@ const [firstProduct, secondProduct, ...otherProducts] = products;
 // console.log(firstProduct);
 // console.log(secondProduct);
 // console.log(otherProducts);
+// ----------------------------------------------
+// TASK-7
+function destruct(user) {
+    const { name, age = 18 } = user;
+    return `ism: ${name}\nyosh: ${age}`
+}
+// console.log(destruct(user5));
+// console.log(destruct(user13));
+// ----------------------------------------------
+// TASK-8
+const company = {
+    name: "Tech Corp",
+    employees: {
+        manager: { name: "Shahzod", age: 30 },
+        developer: { name: "Sardor", age: 25 }
+    }
+};
+const { name, employees: {
+    manager: { name:managerName, age: managerAge },
+    developer: { name: developerName, age: developerAge }
+} } = company
+// console.log(managerName);
+// console.log(managerAge);
+// console.log(developerAge);
+// console.log(developerName);
+
+
+
+
 
 
 
