@@ -25,8 +25,8 @@ let toDo = {
     }
 
 }
+let ask =4
 console.log("\tToDo\n1. addTask\n2. showTask\n3. update\n4. delete");
-let ask = 4
 if (ask == 1) {
     console.clear()
     toDo.addTask("Yugirish", true)
