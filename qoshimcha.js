@@ -11,8 +11,14 @@ let toDo = {
         this.list.push({ id: this.list.length + 1, name: name1, isDone: isDone })
         console.log(name1+" qo'shildi\n");
     },
-    update: function(){
-        
+    update: function(id,newName,Isdone){
+        for (item of this.list) {
+            if (item.id == id) {
+                item.name = newName,
+                item.Isdone=Isdone
+            }
+        }
+        console.log(id+" id yangilandi\n");
     },
     _delete: () => {
         
@@ -20,7 +26,7 @@ let toDo = {
 
 }
 console.log("\tToDo\n1. addTask\n2. showTask\n3. update\n4. delete");
-let ask = 1
+let ask = 4
 if (ask == 1) {
     console.clear()
     toDo.addTask("Yugirish", true)
@@ -30,10 +36,11 @@ if (ask == 1) {
     toDo.showTask()
 } else if (ask == 3) {
     console.clear()
-    update(toDo)
+    toDo.update(0, "Uhlab-qoldi", true)
+    toDo.showTask()
 } else if (ask == 4) {
     console.clear()
-    _delete(toDo)
+    toDo._delete()
 } else {
     console.clear()
     console.log("Xato urinish!");
