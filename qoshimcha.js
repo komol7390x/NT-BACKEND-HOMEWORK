@@ -1,47 +1,33 @@
-function addTask(obj, name1, isdone) {
-    obj.push({
-        id: obj.length + 1,
-        name: name1,
-        isDone: isdone
-    })
-};
-function showTask(obj) {
-    for (let item of obj) {
-        console.log(`ID: ${item.id}\tHARAKAT: ${item.name}\t\tSTATUS: ${item.isDone}`);
+let toDo = {
+    list: [
+        { id: 0, name: "Uygo'nish", isDone: true },
+        { id: 1, name: "Hamomga-kirish", isDone: false },
+        { id: 2, name: "Nonushta qilish", isDone: true },
+      ],
+    showTask: function () {
+        this.list.forEach((item) => console.log(`ID: ${item.id} HARAKAT: ${item.name}\t STATUS: ${item.isDone}`))
+    },
+    addTask: function(name1,isDone){
+        this.list.push({ id: this.list.length + 1, name: name1, isDone: isDone })
+        console.log(name1+" qo'shildi\n");
+    },
+    update: function(){
+        
+    },
+    _delete: () => {
+        
     }
-}
-function update(obj) {
 
 }
-function _delete(obj) {
-
-}
-let toDo = [
-    {
-        id: 0,
-        name: "Uygo'nish",
-        isDone: true
-    },
-    {
-        id: 1,
-        name: "Hamomga-kirish",
-        isDone: false
-    },
-    {
-        id: 2,
-        name: "Nonushta qilish",
-        isDone: true
-    },
-]
 console.log("\tToDo\n1. addTask\n2. showTask\n3. update\n4. delete");
 let ask = 1
 if (ask == 1) {
     console.clear()
-    addTask(toDo, "Yugirish", true)
-    showTask(toDo)
+    toDo.addTask("Yugirish", true)
+    toDo.showTask()
 } else if (ask == 2) {
     console.clear()
-    showTask(toDo)
+    toDo.showTask()
 } else if (ask == 3) {
     console.clear()
     update(toDo)
