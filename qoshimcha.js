@@ -1,8 +1,8 @@
 let toDo = {
     list: [
-        { id: 0, name: "Uygo'nish", isDone: true },
-        { id: 1, name: "Hamomga-kirish", isDone: false },
-        { id: 2, name: "Nonushta qilish", isDone: true },
+        { id: 1, name: "Uygo'nish", isDone: true },
+        { id: 2, name: "Hamomga-kirish", isDone: false },
+        { id: 3, name: "Nonushta qilish", isDone: true },
       ],
     showTask: function () {
         this.list.forEach((item) => console.log(`ID: ${item.id} HARAKAT: ${item.name}\t STATUS: ${item.isDone}`))
@@ -14,35 +14,32 @@ let toDo = {
     update: function(id,newName,Isdone){
         for (item of this.list) {
             if (item.id == id) {
+                console.log(id+" id yangilandi\n");
                 item.name = newName,
                 item.Isdone=Isdone
             }
         }
-        console.log(id+" id yangilandi\n");
     },
-    _delete: () => {
-        
+    _delete:function(id){
+        this.list = this.list.filter(x => !(x.id == id))
+        console.log(id+"-id o'chirildi\n");
     }
 
 }
-let ask =4
-console.log("\tToDo\n1. addTask\n2. showTask\n3. update\n4. delete");
+let ask =3
+console.log("\tToDo\n1. addTask\n2. showTask\n3. update\n4. delete\n\n");
 if (ask == 1) {
-    console.clear()
     toDo.addTask("Yugirish", true)
     toDo.showTask()
 } else if (ask == 2) {
-    console.clear()
     toDo.showTask()
 } else if (ask == 3) {
-    console.clear()
-    toDo.update(0, "Uhlab-qoldi", true)
+    toDo.update(1, "Uhlab-qoldi", true)
     toDo.showTask()
 } else if (ask == 4) {
-    console.clear()
-    toDo._delete()
+    toDo._delete(2)
+    toDo.showTask()
 } else {
-    console.clear()
     console.log("Xato urinish!");
     return 0
 }
