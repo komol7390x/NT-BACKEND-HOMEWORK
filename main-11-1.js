@@ -1,12 +1,18 @@
 // TASK-1
-function Car1(car) {
-    this.car = car;
+function Car1(_brand, _model, _year) {
+    this.brand = _brand;
+    this.model = _model;
+    this.year = _year;
 }
-Car1.prototype.getinfo=function(){
-    return "Brand: Toyota, Model: Camry, Year: 2020"
-}
-const car = new Car1();
-// console.log(car.getinfo())
+
+Car1.prototype.getInfo = function () {
+    return `Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`;
+};
+
+let car1 = new Car1("Mers", "GLS450", 2020);
+let car2 = new Car1("BMW", "i7", 2021);
+console.log(car1.getInfo())
+console.log(car2.getInfo())
 // ----------------------------------------------------------------------
 // TASK-2
 const Animal = {
@@ -45,7 +51,7 @@ let res = new Employee("Komol");
 // res.greet()
 // ----------------------------------------------------------------------
 // TASK-5
-let Car = {
+let Car3 = {
     brand:"BMW",
     speed:100,
     drive() {
@@ -53,7 +59,7 @@ let Car = {
     }
 }
 // Car.drive()
-let sportCar = Object.create(Car);
+let sportCar = Object.create(Car3);
 sportCar.speed = 200;
 // sportCar.drive()
 // ----------------------------------------------------------------------
