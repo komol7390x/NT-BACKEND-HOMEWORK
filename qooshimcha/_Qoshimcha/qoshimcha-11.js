@@ -37,16 +37,28 @@ class Bank{
         }
     }
     showInfoUser(name) {
-        for (let item of this.users.entries()) {
+        for (let [key,item] of this.users.entries()) {
             if (item.name == name) {
-                console.log(item);
+                console.log(`Login: ${item.name}\nParol: ${item.password}\nBalance ${item.balance}`);
             }
         }
     }
-    deposite() {
-        
+    deposite(login, balance) {
+        let sum;
+        let new1;
+        for (let [key, val] of this.users.entries()) {
+            if (val.name == login) {
+                sum=val.balance
+                val.balance += balance
+                new1=val.balance
+            }
+        }
+        console.log(`User: ${login}\n\nAvvalgi balance: ${sum}\nQo'shilgan balance: ${balance}\n--------------------\nHozir: ${new1}`);
     }
     withDraw() {
+        
+    }
+    sendUsers() {
         
     }
 }
@@ -57,7 +69,7 @@ console.clear()
 const prompt = require('prompt-sync')();
 console.log("\tBank Account\n1. Registratsiya\n2. Tizimga kirish\n");
 // const check = prompt(">>> ")
-let check=2
+let check=2 //err
 if (check == 1) {
     console.clear()
     let login = prompt("Login kriting: ");
@@ -69,9 +81,6 @@ if (check == 1) {
         return 0;
     }
     let loginCheck = bank.checkUserName(login);
-    // let login = "Salom";
-    // let password = "123456";
-    // let balance = 100_000;
     if (loginCheck) {
         console.clear();
         bank.register(login,password,balance,)
@@ -92,9 +101,24 @@ if (check == 2 || check1 == 1) {
     if (checkUser) {
         console.clear()
         console.log(`\tBank Info\tFoydalanuvchi: ${login}\n1. Malumot\n2. Hisob to'ldirish\n3. Pul chiqarish\n4. Pul o'tqazish\n`);
-        let res = prompt(">>> ")
+        // let res = prompt(">>> ")
+        let res=2
         if (res == 1) {
-            
+            console.clear()
+            bank.showInfoUser(login);
+        } else if (res == 2) {
+            console.clear()
+            // let money=prompt("Qancha pul to'ldirasiz: ")
+            let money = 111111
+            bank.deposite(login,money);
+        } else if (res == 3) {
+            // let money = prompt("Qancha pul chiqarasiz")
+            let money=111111
+            bank.withDraw(login,money);
+        } else if (res == 4) {
+            let user = prompt("Kimga o'tkazasiz? ");
+            let money=prompt("Qancha o'tkazasiz? ")
+            bank.sendUsers(login,user,money)
         }
     } else {
         console.log("Login yoki Parol xato!");
