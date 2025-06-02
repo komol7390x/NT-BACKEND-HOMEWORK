@@ -14,13 +14,14 @@ let toDo = {
     update: function(id,newName,Isdone){
         for (item of this.list) {
             if (item.id == id) {
-                console.log(id+" id yangilandi\n");
                 item.name = newName,
                 item.Isdone=Isdone
+                console.log(id+" id yangilandi\n");
             }
         }
+        this.showTask()
     },
-    _delete:function(id){
+    _delete: function(id){
         this.list = this.list.filter(x => !(x.id == id))
         console.log(id+"-id o'chirildi\n");
     }
@@ -30,7 +31,6 @@ let ask =3
 console.log("\tToDo\n1. addTask\n2. showTask\n3. update\n4. delete\n\n");
 if (ask == 1) {
     toDo.addTask("Yugirish", true)
-    toDo.showTask()
 } else if (ask == 2) {
     toDo.showTask()
 } else if (ask == 3) {
