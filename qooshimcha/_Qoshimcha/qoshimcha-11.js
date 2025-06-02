@@ -24,7 +24,7 @@ class Bank{
         return true
     }
     checkUserLogin(login, password) {
-        for (let [key, val] of this.users.entries) {
+        for (let [key, val] of this.users.entries()) {
             if (val.name == login && val.password == password) {
                 return true
             }
@@ -77,11 +77,15 @@ if (check == 1) {
 if (check == 2 || check1 == 1) {
     console.clear()
     console.log("\tBank Account");
-    let login = prompt("Login kiriting: ")
-    let pass = prompt("Parol kiriting: ")
+    // let login = prompt("Login kiriting: ")
+    // let pass = prompt("Parol kiriting: ")
+    let login = "Batman"; //err
+    let pass ="123456" //err
     let checkUser = bank.checkUserLogin(login, pass);
     if (checkUser) {
-        
+        console.clear()
+        console.log(`\tBank Info\tFoydalanuvchi: ${login}\n1. Malumot\n2. Hisob to'ldirish\n3. Pul chiqarish\n4. Pul o'tqazish\n`);
+        res=prompt(">>> ")
     } else {
         console.log("Login yoki Parol xato!");
         return 0    }
