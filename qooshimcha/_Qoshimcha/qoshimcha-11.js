@@ -2,7 +2,6 @@ class Bank{
     constructor(_id, _name, _balance) {
         this.users=new Map()
     }
-    this.users
     checkUser() {
         
     }
