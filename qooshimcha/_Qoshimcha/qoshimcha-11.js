@@ -36,6 +36,13 @@ class Bank{
             console.log(key);
         }
     }
+    showInfoUser(name) {
+        for (let item of this.users.entries()) {
+            if (item.name == name) {
+                console.log(item);
+            }
+        }
+    }
     deposite() {
         
     }
@@ -85,7 +92,10 @@ if (check == 2 || check1 == 1) {
     if (checkUser) {
         console.clear()
         console.log(`\tBank Info\tFoydalanuvchi: ${login}\n1. Malumot\n2. Hisob to'ldirish\n3. Pul chiqarish\n4. Pul o'tqazish\n`);
-        res=prompt(">>> ")
+        let res = prompt(">>> ")
+        if (res == 1) {
+            
+        }
     } else {
         console.log("Login yoki Parol xato!");
         return 0    }
