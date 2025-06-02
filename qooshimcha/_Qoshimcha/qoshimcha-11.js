@@ -15,7 +15,7 @@ class Bank{
         this.users.set(this.users.size + 1,{name,password,balance});
         // this.showInfo()
     }
-    checkUserName(name) {
+    checkRegisterName(name) {
         for (let [key, val] of this.users.entries()) {
             if (val.name == name) {
                 return false
@@ -55,11 +55,53 @@ class Bank{
         }
         console.log(`User: ${login}\n\nAvvalgi balance: ${sum}\nQo'shilgan balance: ${balance}\n--------------------\nHozir: ${new1}`);
     }
-    withDraw() {
+    withDraw(login, money) {
+        console.clear();
+        let sum;
+        let new1;
+        for (let [key, val] of this.users.entries()) {
+            if (val.name == login) {
+                if (val.balance < money) {
+                    console.log(`Kechirasiz sizda mablag' yetarli emas`);
+                    return 0
+                } else {
+                    sum=val.balance
+                    val.balance -= money;
+                    new1=val.balance;
+                    console.log(`User: ${login}\n\nAvvalgi balance: ${sum}\nChiqarilgan balance: ${money}\n--------------------\nHozirgi balance: ${new1}`);
+                    return 0
+                }
+            }
+        }
         
     }
-    sendUsers() {
-        
+    sendUsers(login, otherClient, money) {
+        console.clear()
+        let sum;
+        let new1;
+        let othersum;
+        let othernew
+        for (let [key, val] of this.users.entries()) {
+            if (val.name == login) {
+                if (val.balance < money) {
+                    console.log(`Kechirasiz sizda mablag' yetarli emas`);
+                    return 0
+                } else {
+                    sum = val.balance
+                    val.balance -= money;
+                    new1 = val.balance;
+                }
+            }
+        }
+        for (let [key, val] of this.users.entries()) {
+            if (val.name == otherClient) {
+                othersum = val.balance;
+                val.balance += money;
+                othernew = val.balance;
+            }
+        }
+        console.log(`User: ${login}\n\nAvvalgi balance: ${sum}\nChiqarilgan balance: ${money}\n----------------------------\nHozirgi balance: ${new1}\n==================`);
+        console.log(`\nUser: ${otherClient}\n\nAvvalgi balance: ${othersum}\nQo'shilgan balance: ${money}\n----------------------------\nHozirgi balance: ${othernew}\n`);
     }
 }
 
@@ -68,63 +110,57 @@ let check1;
 console.clear()
 const prompt = require('prompt-sync')();
 console.log("\tBank Account\n1. Registratsiya\n2. Tizimga kirish\n");
-// const check = prompt(">>> ")
-let check=2 //err
+const check = prompt(">>> ")
 if (check == 1) {
     console.clear()
     let login = prompt("Login kriting: ");
     let password = prompt("Parol kiriting: ");
-    let balance = prompt("Balance kiriting: ")
-    if (typeof balance != "number") {
+    let balance1 = +prompt("Balance kiriting: ")
+    if (typeof balance1 != "number") {
         console.clear();
-        console.log("Balanse faqat sonda iborat bolish kerak!");
+        console.log("Balanse faqat sondan iborat bolish kerak!");
         return 0;
     }
-    let loginCheck = bank.checkUserName(login);
+    let loginCheck = bank.checkRegisterName(login);
     if (loginCheck) {
         console.clear();
-        bank.register(login,password,balance,)
+        bank.register(login,password,balance1,)
         console.log("Siz ro'yxatdan o'tdingiz\nTizimga kirasizmi?\n") 
         check1 =+prompt("YO'Q-1\nHA-2\n\n>>> ");
     } else {
         console.log("Bunday foydalanuvchi ro'yxatdan o'tgan");
     }
 }
-if (check == 2 || check1 == 1) {
+if (check == 2 || check1 == 2) {
     console.clear()
     console.log("\tBank Account");
-    // let login = prompt("Login kiriting: ")
-    // let pass = prompt("Parol kiriting: ")
-    let login = "Batman"; //err
-    let pass ="123456" //err
+    let login = prompt("Login kiriting: ");
+    let pass = prompt("Parol kiriting: ")
     let checkUser = bank.checkUserLogin(login, pass);
     if (checkUser) {
         console.clear()
         console.log(`\tBank Info\tFoydalanuvchi: ${login}\n1. Malumot\n2. Hisob to'ldirish\n3. Pul chiqarish\n4. Pul o'tqazish\n`);
-        // let res = prompt(">>> ")
-        let res=2
+        let res = prompt(">>> ")
         if (res == 1) {
             console.clear()
             bank.showInfoUser(login);
         } else if (res == 2) {
             console.clear()
-            // let money=prompt("Qancha pul to'ldirasiz: ")
-            let money = 111111
+            let money = +prompt("Qancha pul to'ldirasiz: ")
             bank.deposite(login,money);
         } else if (res == 3) {
-            // let money = prompt("Qancha pul chiqarasiz")
-            let money=111111
+            console.clear()
+            let money = +prompt("Qancha pul chiqarasiz: ");
             bank.withDraw(login,money);
         } else if (res == 4) {
             let user = prompt("Kimga o'tkazasiz? ");
-            let money=prompt("Qancha o'tkazasiz? ")
+            let money = +prompt("Qancha o'tkazasiz? ");
             bank.sendUsers(login,user,money)
         }
     } else {
         console.log("Login yoki Parol xato!");
         return 0    }
 } else {
-    console.log("Xato kiritish");
+    console.log("Xato kiritish1");
     return 0;
 }
-// Bank.checkUser(login,pass);
