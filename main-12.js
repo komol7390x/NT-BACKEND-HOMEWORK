@@ -1,3 +1,4 @@
+// TASK-1
 class Student{
     constructor(name, age, grade) {
         this.name = name;
@@ -11,6 +12,7 @@ class Student{
 const res1 = new Student("Alisher", 27, 5);
 // console.log((res1.getInfo()));
 // -------------------------------------------------------------------
+// TASK-2
 class BankAccount{
     #balance
     owner
@@ -44,6 +46,7 @@ const res2 = new BankAccount(200_000, "Bahrom");
 // res2.withdraw(50_000);
 // console.log(`Hozir da mablag' ${res2.getBalance}`);
 // -----------------------------------------------------------------
+// TASK-3
 class Animal{
     constructor(name, sound) {
         this.name = name,
@@ -60,6 +63,7 @@ const dog = new Cat("Kuchuk","Woof!")
 // cat.makeSound()
 // dog.makeSound()
 // -----------------------------------------------------------------
+// TASK-4
 class Technology{
     constructor(brand, price) {
         this.brand = brand,
@@ -95,6 +99,7 @@ const lap=new Laptop("Surface",500,"core i5","20000 mha")
 // comp.getInfo()
 // lap.getInfo()
 // -----------------------------------------------------------------
+// TASK-5
 class Vehicle {
     constructor(name, space) {
         this.name = name,
@@ -116,3 +121,34 @@ const air = new Boat("Mashina", " suvda")
 // boat.move();
 // air.move()
 // --------------------------------------------------------------------
+// Bonus
+function divide(first,second) {
+    try {
+        if (second != 0 && typeof first == "number" && typeof second == "number") {
+            return first/second
+        } else {
+            throw new Error("Qiymatlar son emas yoki 2-qiymati 0 ga teng!")
+        }
+    } catch (error) {
+        return error.message
+    }
+}
+// console.log(divide(15,5));
+// console.log(divide(15,0));
+// console.log(divide("str", "str2"));
+
+// -------------------------------------------
+function sqrt(first) {
+    try {
+        if (first > 0 && typeof first == "number") {
+            return Math.sqrt(first)
+        } else {
+            throw new Error("Musbat son emas yoki Bu son emas")
+        }
+    } catch (error) {
+        return error.message
+    }
+}
+console.log(sqrt(81));
+console.log(sqrt(-81));
+
