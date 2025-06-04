@@ -61,4 +61,4 @@ lib.addBook("Ko'hna dunyo", "Tarix haqiqat insoniyat", "Erkin A'zam", 2005, "Tar
 // lib.update(2,"Roman")
 // lib.delete("Ufq");
 // lib.showBook()
-lib.searchBook("d")
+lib.searchBook("d");
