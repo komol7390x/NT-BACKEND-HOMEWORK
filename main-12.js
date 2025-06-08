@@ -58,8 +58,8 @@ class Animal{
 }
 class Dog extends Animal { };
 class Cat extends Animal { };
-const cat=new Cat("Mushuk","Meow")            
-const dog = new Cat("Kuchuk","Woof!")
+const cat = new Cat("Mushuk", "Meow");       
+const dog = new Cat("Kuchuk", "Woof!");
 // cat.makeSound()
 // dog.makeSound()
 // -----------------------------------------------------------------
