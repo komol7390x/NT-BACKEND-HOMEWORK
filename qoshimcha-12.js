@@ -56,9 +56,9 @@ lib.addBook("O'tkan kunlar", "Eski davr muhabbat fojia", "Abdulla Qodiriy", 1926
 lib.addBook("Mehrobdan chayon", "Xiyonat sevgi ayb", "Pirimqul Qodirov", 1972, "Dramatik roman");
 lib.addBook("Ufq", "Qishloq hayoti islohotlar", "Said Ahmad", 1980, "Ijtimoiy roman");
 lib.addBook("Ko'hna dunyo", "Tarix haqiqat insoniyat", "Erkin A'zam", 2005, "Tarixiy hikoya");
-// lib.showBook()
-// lib.showBookId(2)
-// lib.update(2,"Roman")
+// lib.showBook();
+// lib.showBookId(2);
+// lib.update(2,"Roman");
 // lib.delete("Ufq");
-// lib.showBook()
+// lib.showBook();
 lib.searchBook("d");
