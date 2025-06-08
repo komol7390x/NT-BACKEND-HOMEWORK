@@ -46,7 +46,7 @@ class Book{
         this.name = name,
         this.descriptor = descriptor,
         this.author=author,
-        this.year=year
+        this.year=year,
         this.genre = genre
     }
 }
