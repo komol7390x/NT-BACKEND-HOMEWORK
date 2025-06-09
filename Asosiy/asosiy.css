@@ -11,7 +11,7 @@
     width: 350px;
     border-radius: 15px;
 }
-#email,#password, .btn{
+#email,#password, #btn{
     margin-bottom: 40px;
     margin-left: 50px;
     width: 250px;
@@ -20,13 +20,13 @@
     font-size: 15px;
     border: 1px solid silver;
 }
-.btn{
+#btn{
     margin-top: -30px;
     background-color: black;
     color: white;
     height: 35px;
     width: 255px;
 }
-.btn:hover{
+#btn:hover{
     scale: 1.1;
 }
