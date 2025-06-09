@@ -7,8 +7,10 @@ const score = document.getElementById('count1');
 const res = document.getElementById('result');
 const name1 = document.getElementById('name');
 const count = document.getElementById('count');
-const allbtn = document.querySelectorAll('.btn');
-const compChoose = Math.floor(Math.random() * 3);
+let userid1 = document.getElementById('userId');
+let compid1 = document.getElementById('compId')
+let userId = userid1.textContent;
+let compId = compid1.textContent;
 // --------------------------------------------------------------------
 function startGame() {
     let count2 = Number(count.value)
@@ -23,18 +25,42 @@ function startGame() {
     let user1 = document.getElementById('user');
     let name2 = name1.value.slice(0, 6).toUpperCase();
     user1.textContent = name2
-// -----------------------------------------------------------------------
-allbtn.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        playGame(btn.value)
-    })
-})
-function playGame(userValue) {
-    const compChoose = Math.floor(Math.random() * 3);
-    console.log(userValue,compChoose);
-}
+    // -----------------------------------------------------------------------
+    const allbtn = document.querySelectorAll('.btn');
+    let i = 1;
+    function returnRes(user, comp) {
+        // console.log("User:", user, "Kompyuter:", comp);
+        if (user === comp) {
+            res.textContent = "Durrang!";
+        } else if (
+            (user === 0 && comp === 2) ||
+            (user === 1 && comp === 0) ||
+            (user === 2 && comp === 1)
+        ) {
+            // userid1.textContent=(userId+1)
+            res.textContent = "Siz yutdingiz!";
+        } else {
+            res.textContent = "Kompyuter yutdi!";
+        }
 
-    for (let i = 1; i <= count2; i++){
-        score.textContent = `${i}/${count2}`      
+        score.textContent = `${i}/${count2}`;
+        i++;
+
+        if (i > count2) {
+            alert("O'yin tugadi!");
+        }
     }
+
+    allbtn.forEach(item => {
+        item.addEventListener('click', () => {
+            if (i <= count2) {
+                const userValue = Number(item.value);
+                const compValue = Math.floor(Math.random() * 3);
+                returnRes(userValue, compValue);
+            }
+        });
+    });
+    
+    
+    
 }
