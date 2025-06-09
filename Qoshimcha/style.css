@@ -1,0 +1,33 @@
+.wrapper{
+    border: 1px solid silver;
+    width: 350px;
+    height: 300px;
+    border-radius: 10px;
+}
+#name,#count{
+    padding-left: 10px;
+    width: 200px;
+    height: 30px;
+    margin-left: 70px;
+    margin-top: 20px;
+    border-radius: 7px;
+}
+.btn{
+    margin-top: 30px;
+    width: 80px;
+    height: 35px;
+    margin-left: 24px;
+    border-radius: 7px;
+    font-size: 15px;
+    border: 1px solid silver;
+    transition: transform 0.5s ease;
+}
+.btn:hover{
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
+}
+.restart{
+    margin-top: 20px;
+    margin-left: 100px;
+}
