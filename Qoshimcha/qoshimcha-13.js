@@ -9,8 +9,8 @@ const name1 = document.getElementById('name');
 const count = document.getElementById('count');
 let userid1 = document.getElementById('userId');
 let compid1 = document.getElementById('compId')
-let userId = userid1.textContent;
-let compId = compid1.textContent;
+let userId = Number(userid1.textContent);
+let compId = Number(compid1.textContent);
 // --------------------------------------------------------------------
 function startGame() {
     let count2 = Number(count.value)
@@ -37,15 +37,17 @@ function startGame() {
             (user === 1 && comp === 0) ||
             (user === 2 && comp === 1)
         ) {
-            // userid1.textContent=(userId+1)
+            userId+=1
+            userid1.textContent=(userId)
             res.textContent = "Siz yutdingiz!";
         } else {
+            compId += 1
+            compid1.textContent=(compId)
             res.textContent = "Kompyuter yutdi!";
         }
 
         score.textContent = `${i}/${count2}`;
         i++;
-
         if (i > count2) {
             alert("O'yin tugadi!");
         }
