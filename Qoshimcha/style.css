@@ -3,7 +3,7 @@
     margin-left: 100px;
     border: 1px solid silver;
     width: 350px;
-    height: 400px;
+    height: 470px;
     border-radius: 10px;
 }
 #name,#count{
@@ -51,7 +51,7 @@
     color: white;
 }
 .score{
-    margin-top: 20px;
+    margin-top: 35px;
     margin-left: 24px;
 }
 .restart{
@@ -61,9 +61,43 @@
 #user,#comp{
     border-radius: 5px;
     border: 1px solid rgb(132, 126, 126);
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    color: white;
+    padding: 8px 22px;
+}
+#user{
+    background-color: rgba(71, 134, 96, 0.749);
+}
+#comp{
+    background-color: rgba(205, 55, 55, 0.749);
+    margin-left: px;
+}
+#userId,#compId{
+    border: 1px solid silver;
+    padding: 8px ;
+    border-radius: 7px;
+    margin: 11px ;
+}
+.restart{
+    background-color: rgb(103, 152, 207);
+    margin-left: 80px;
+    margin-top: 10px;
+    width: 200px;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 15px;
+    border: 1px solid silver;
+    transition: transform 0.5s ease;
+    text-transform:uppercase;
+}
+.restart:hover{
+    transform: scale(0.95);
+}
+.result{
+    border-radius: 7px;
+    margin-top: 30px;
     text-align: center;
-    padding-right: 20px;
+    margin-left: 80px;
+    width: 200px;
+    padding: 8px 0px;
+    background-color: rgb(213, 228, 83);
 }
