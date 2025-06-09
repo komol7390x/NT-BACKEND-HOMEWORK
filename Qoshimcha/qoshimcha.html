@@ -10,21 +10,22 @@
     <div class="wrapper">
         <input type="text" id="name" placeholder="ISM"><br>
         <input type="text" id="count" placeholder="URINISH"><br><br>
-        <button id="start">START</button>
-        <button id="clear">CLEAR</button><br><br>
+        <button id="start" onclick="startGame()">START</button>
+        <button id="clear" onclick="clearInput()">CLEAR</button><br><br>
         <hr>
-        <button class="btn">TOSH</button>
-        <button class="btn">QOGO'Z</button>
-        <button class="btn">QAYCHI</button>
-        <br>
+        <button class="btn" value="1">TOSH</button>
+        <button class="btn" value="2">QOGO'Z</button>
+        <button class="btn" value="3">QAYCHI</button>
+        <br><br>
+        <span class="count1" id="count1">0/0</span>
         <div class="score">
-            <span id="user">USER</span>
+            <button id="user">USER</button>
             <span id="userId">0</span>
-            <span>-</span>
+            <span id="chiziq">-</span>
             <span id="compId">0</span>
-            <span id="comp">COMP</span>
+            <button id="comp">COMP</button>
         </div>
-        <p class="result">GAME STOP</p>
+        <p class="result" id="result">GAME STOP</p>
         <button class="restart">Restart</button>
         <script src="./qoshimcha-13.js"></script>
     </div>
