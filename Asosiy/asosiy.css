@@ -1,0 +1,32 @@
+#loginName{
+    font-size: 35px;
+    font-family:monospace;
+    margin-left: 135px;
+    margin-bottom: 50px;
+}
+.divAll{
+    margin-left: 50px;
+    border: 2px solid black;
+    height: 330px;
+    width: 350px;
+    border-radius: 15px;
+}
+#email,#password, #btn{
+    margin-bottom: 40px;
+    margin-left: 50px;
+    width: 250px;
+    height: 30px;
+    border-radius: 7px;
+    font-size: 15px;
+    border: 1px solid silver;
+}
+#btn{
+    margin-top: -30px;
+    background-color: black;
+    color: white;
+    height: 35px;
+    width: 255px;
+}
+#btn:hover{
+    scale: 1.1;
+}
