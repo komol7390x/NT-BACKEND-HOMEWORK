@@ -15,6 +15,9 @@ function printProducts() {
     console.log('-------------------------------------');
 }
 function getProducts() {
+    setTimeout(() => {
+        sortProductsByPrice()
+    },1500)
     let i=1
     for (let item of database) {
         console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`);
@@ -28,9 +31,6 @@ function sortProductsByPrice() {
 }
 printProducts();
 console.log('Maxsulot sortlanmoqda...\n');
-setTimeout(() => {
-    sortProductsByPrice()
-},1500)
 setTimeout(() => {
     getProducts()
     console.log('Maxsulot sortlandi!\n');
