@@ -1,22 +1,28 @@
-const wrapper = document.getElementById('wrapper');
-const box = document.getElementById('box1');
-const h3 = document.getElementById('userId');
-const h4 = document.getElementById('id');
-const h5 = document.getElementById('title');
-const p = document.getElementById('body');
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
-    .then(res => takeResult(res))
-function takeResult(element) {
-    for (let item of element) {
-        h3.textContent = `User ID: ${item.userId}`;
-        h4.textContent = `ID: ${item.id}`
-        h5.textContent = `Title: ${item.title.slice(0, 35)}`
-        p.textContent = `Body: ${item.body.slice(0, 50)}`
-        box.appendChild(h3,);
-        box.appendChild(h4);
-        box.appendChild(h5);
-        box.appendChild(p);
-        wrapper.appendChild(box)
-    }
-}
+    .then(res => res.forEach(element => {
+        const continer = document.getElementById('containerBox')
+        const box = document.createElement('div');
+        const title = document.createElement('div');
+        const id = document.createElement('div')
+        const body = document.createElement('div')
+
+        box.classList.add('box');
+        title.classList.add('title');
+        id.classList.add('id');
+        body.classList.add('body');
+        
+        id.textContent = `ID: ${element.id}`
+        title.textContent = `TITLE: ${element.title.slice(0, 50) }`
+        body.textContent = `BODY: ${element.body.slice(0, 50)}`
+                
+        box.appendChild(id)
+        box.appendChild(title)
+        box.appendChild(body)
+
+        continer.appendChild(box)
+    })).catch(error => {
+        console.log(`Xatolik yuz berdi: ${error.message}`);
+        const continer = document.getElementById('containerBox')
+        continer.textContent = `Xatolik yuz berdi: ${error.message}`
+    })
