@@ -1,6 +1,7 @@
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
     .then(res => res.forEach(element => {
+        const lading = document.getElementById('loading')
         const continer = document.getElementById('containerBox')
         const box = document.createElement('div');
         const title = document.createElement('div');
@@ -21,6 +22,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
         box.appendChild(body)
 
         continer.appendChild(box)
+        lading.style.display='none'
     })).catch(error => {
         console.log(`Xatolik yuz berdi: ${error.message}`);
         const continer = document.getElementById('containerBox')
