@@ -33,10 +33,11 @@ function startGame() {
         if (user === comp) {
             res.textContent = "Durrang!";
         } else if (
-            (user === 0 && comp === 2) ||
-            (user === 1 && comp === 0) ||
-            (user === 2 && comp === 1)
+            (user === 1 && comp === 2) ||
+            (user === 2 && comp === 3) ||
+            (user === 3 && comp === 1)
         ) {
+            i++;
             userId+=1
             userid1.textContent=(userId)
             res.textContent = "Siz yutdingiz!";
@@ -44,10 +45,10 @@ function startGame() {
             compId += 1
             compid1.textContent=(compId)
             res.textContent = "Kompyuter yutdi!";
+            i++;
         }
 
         score.textContent = `${i}/${count2}`;
-        i++;
         if (i > count2) {
             alert("O'yin tugadi!");
         }
@@ -62,7 +63,5 @@ function startGame() {
             }
         });
     });
-    
-    
     
 }
