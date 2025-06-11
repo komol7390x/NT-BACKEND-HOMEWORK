@@ -10,12 +10,12 @@ function printProducts() {
     let i = 1
     for (let item of database) {
         console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`);
-        i++
+        i++;
     }
     console.log('-------------------------------------');
 }
 function getProducts() {
-    let i=1
+    let i = 1;
     for (let item of database) {
         console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`);
         i++
@@ -23,13 +23,13 @@ function getProducts() {
     console.log('-------------------------------------');
 }
 function sortProductsByPrice() {
-    const sort = database.sort((a, b) => a.price - b.price)
+    const sort = database.sort((a, b) => a.price - b.price);
     return sort
 }
 printProducts();
 console.log('Maxsulot sortlanmoqda...\n');
 setTimeout(() => {
-    sortProductsByPrice()
+    sortProductsByPrice();
 },1500)
 setTimeout(() => {
     getProducts()
