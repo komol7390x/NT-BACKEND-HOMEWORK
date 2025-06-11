@@ -45,16 +45,40 @@ async function addProduct(name, price, quantity, catagory) {
         console.log('Error on fetching users', error);
     }
 }
-async function updateProduct(obj) {
-
+async function updateProduct(id, obj) {
+    try {
+        const res = await fetch(`${url}/${id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        });
+    } catch (error) {
+        console.log('Error on fetching users', error);
+    }
 }
-
 async function removeProduct(id) {
-
+    try {
+        const res = await fetch(`${url}/${id}`, {
+            method: "DELETE",
+        });
+    } catch (error) {
+        console.log('Error on fetching users', error);
+    }
 }
 
 async function search(string) {
-
+    try {
+        const res = await fetch(url).then(res => res.json());
+        for (let item of res) {
+            if (item.name.includes(string)) {
+                console.log(item);
+            }
+        }
+    } catch (error) {
+        console.log('Error on fetching users', error);
+    }
 }
 
 async function sortByCatagory() {
@@ -74,5 +98,9 @@ async function getProductsByPrices(start, stop) {
 // await addProduct("Asus ROG Strix", 1200, 24, "computer");
 // await addProduct("LG Smart TV 55", 700, 18, "tv");
 // await addProduct("Samsung QLED 65''", 1100, 24, "tv")
+
 // await getProducts()
 // await getProductById(3)
+// await updateProduct(3, { name: "Samsung 24 Ultra" })
+// await removeProduct(1)
+// await search('Sam')
