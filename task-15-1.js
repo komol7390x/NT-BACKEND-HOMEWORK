@@ -1,10 +1,14 @@
 let url = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/product'
 
+function print(object) {
+    console.log(`ID: ${object.id}\nName: ${object.name}\nPrice: ${object.price}\nQuantity: ${object.quantity}\nCatagory: ${object.catagory}\n------------------------`);
+}
+
 async function getProducts() {
     try {
         const res = await fetch(url).then(res => res.json())
-        for (let i = 1; i <= res.length; i++) {
-            getProductById(i);
+        for (let item of res) {
+            print(item)
         }
     } catch (error) {
         console.log('Error on fetching users', error);
@@ -16,7 +20,7 @@ async function getProductById(id) {
         const res = await fetch(url).then(res => res.json())
         for (let item of res) {
             if (item.id == id) {
-                console.log(`ID: ${item.id}\nName: ${item.name}\nPrice: ${item.price}\nQuantity: ${item.quantity}\nCatagory: ${item.catagory}\n"------------------------"`);
+                print(item)
             }
         }
     } catch (error) {
@@ -54,7 +58,8 @@ async function updateProduct(id, obj) {
             },
             body: JSON.stringify(obj)
         });
-        console.log(`ID:${id}  maxsulot o'zgartirildi`);
+        console.log(`ID:${id}  maxsulot o'zgartirildi\n`);
+        getProductById(id)
     } catch (error) {
         console.log('Error on fetching users', error);
     }
@@ -130,7 +135,7 @@ async function getAllResult() {
     // await search('Sam');
     // await sortByCatagory()
     // await sortByPrice()
-    await getProductsByPrices(200,800)
+    // await getProductsByPrices(200,800)
 }
 
 getAllResult()
