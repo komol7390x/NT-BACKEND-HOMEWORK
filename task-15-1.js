@@ -68,6 +68,11 @@ async function sortByPrice() {
 async function getProductsByPrices(start, stop) {
 
 }
+// await addProduct("Iphone 13 Pro Max", 500, 20, "phone");
+// await addProduct("Samsung Galaxy S22", 450, 18, "phone");
+// await addProduct("MacBook Air M2", 1000, 24, "computer");
+// await addProduct("Asus ROG Strix", 1200, 24, "computer");
+// await addProduct("LG Smart TV 55", 700, 18, "tv");
+// await addProduct("Samsung QLED 65''", 1100, 24, "tv")
 // await getProducts()
 // await getProductById(3)
-// await addProduct("Iphone 13 Pro Max", 500, 20, "phone")
