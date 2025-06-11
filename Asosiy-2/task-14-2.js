@@ -9,7 +9,7 @@ const database = [
 function printProducts() {
     let i = 1
     for (let item of database) {
-        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`);
+        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`)
         i++
     }
     console.log('-------------------------------------');
@@ -17,13 +17,13 @@ function printProducts() {
 function getProducts() {
     let i=1
     for (let item of database) {
-        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`);
+        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`)
         i++
     }
     console.log('-------------------------------------');
 }
 function sortProductsByPrice() {
-    const sort = database.sort((a, b) => a.price - b.price)
+    const sort = database.sort((a, b) => a.price - b.price);
     return sort
 }
 printProducts();
