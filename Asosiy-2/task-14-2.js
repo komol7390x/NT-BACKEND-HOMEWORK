@@ -9,15 +9,15 @@ const database = [
 function printProducts() {
     let i = 1
     for (let item of database) {
-        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`)
-        i++
+        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`);
+        i++;
     }
     console.log('-------------------------------------');
 }
 function getProducts() {
-    let i=1
+    let i = 1;
     for (let item of database) {
-        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`)
+        console.log(`${i}. Nomi: ${item.name}\tNarxi: ${item.price}`);
         i++
     }
     console.log('-------------------------------------');
@@ -29,7 +29,7 @@ function sortProductsByPrice() {
 printProducts();
 console.log('Maxsulot sortlanmoqda...\n');
 setTimeout(() => {
-    sortProductsByPrice()
+    sortProductsByPrice();
 },1500)
 setTimeout(() => {
     getProducts()
