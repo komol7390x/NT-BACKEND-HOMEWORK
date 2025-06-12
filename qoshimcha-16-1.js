@@ -201,98 +201,133 @@ class Book {
         this.genre = genre
     }
     async printBookId(id) {
-        const res = await fetch(this.bookUrl).then(res => res.json());
-        for (let item of res) {
-            if (item.id == id) {
-                this.printBook(item)
+        try {
+            const res = await fetch(this.bookUrl).then(res => res.json());
+            for (let item of res) {
+                if (item.id == id) {
+                    this.printBook(item)
+                }
             }
+            return true
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
-        return true
     }
     async printBookTitle(title) {
-        const res = await fetch(this.bookUrl).then(res => res.json());
-        for (let item of res) {
-            if (item.title == title) {
-                this.printBook(item)
+        try {
+            const res = await fetch(this.bookUrl).then(res => res.json());
+            for (let item of res) {
+                if (item.title == title) {
+                    this.printBook(item)
+                }
             }
+            return true
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
-        return true
+        
     }
     async checkTitle(title) {
-        const res = await fetch(this.bookUrl).then(res => res.json());
-        for (let item of res) {
-            if (item.title == title) {
-                return false
+        try {
+            const res = await fetch(this.bookUrl).then(res => res.json());
+            for (let item of res) {
+                if (item.title == title) {
+                    return false
+                }
             }
+            return true
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
-        return true
+        
     }
     async checkId(id) {
-        const res = await fetch(this.bookUrl).then(res => res.json());
-        for (let item of res) {
-            if (item.id == id) {
-                return false
+        try {
+            const res = await fetch(this.bookUrl).then(res => res.json());
+            for (let item of res) {
+                if (item.id == id) {
+                    return false
+                }
             }
+            return true
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
-        return true
     }
     async createBook(title, description, genre) {
-        const checkBook = await this.checkTitle(title)
+        try {
+            const checkBook = await this.checkTitle(title)
 
-        if (checkBook) {
-            await fetch(this.bookUrl, {
-                method: 'POST',
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify({
-                    title,
-                    description,
-                    genre
+            if (checkBook) {
+                await fetch(this.bookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-type': 'application/json' },
+                    body: JSON.stringify({
+                        title,
+                        description,
+                        genre
+                    })
                 })
-            })
-            console.log(`${title} jitob qoshildi`);
-            return
-        }
-        else {
-            console.log(`${title} bunday kitob alaqachon bor`);
-            return
+                console.log(`${title} jitob qoshildi`);
+                return
+            }
+            else {
+                console.log(`${title} bunday kitob alaqachon bor`);
+                return
+            }
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
     }
     printBook(item) {
         console.log(`Id:${item.id}\nNomi:${item.title}\nMazmuni: ${item.description}\nJanri:${item.genre}\n-----------------------`);
     }
     async readAllBook() {
-        const res = await fetch(this.bookUrl).then(res => res.json());
-        for (let item of res) {
-            this.printBook(item)
+        try {
+            const res = await fetch(this.bookUrl).then(res => res.json());
+            for (let item of res) {
+                this.printBook(item)
+            }
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
+        
     }
     async updateTitle(id, title2) {
-        const check = await this.checkTitle(title2);
-        if (check) {
-            await fetch(`${this.bookUrl}/${id}`, {
-                method: 'PUT',
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify({
-                    title: title2
+        try {
+            const check = await this.checkTitle(title2);
+            if (check) {
+                await fetch(`${this.bookUrl}/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-type': 'application/json' },
+                    body: JSON.stringify({
+                        title: title2
+                    })
                 })
-            })
-            this.printBookId(id)
-            console.log(`${title2} yangilandi\n`);
-        } else {
-            console.log(`${title2} bunday kitob alaqachor bor`);
-            this.printBookTitle(title2);
-            return
+                this.printBookId(id)
+                console.log(`${title2} yangilandi\n`);
+            } else {
+                console.log(`${title2} bunday kitob alaqachor bor`);
+                this.printBookTitle(title2);
+                return
+            }
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
     }
     async delete(id) {
-        const check = await this.checkId(id)
-        if (!check) {
-            await fetch(`${this.bookUrl}/${id}`,
-                { method: "DELETE" }
-            )
-            console.log(`ID: ${id} o'chirildi!`);
-        } else {
-            console.log(`${id} bunday id topilmmadi`);
+        try {
+            const check = await this.checkId(id)
+            if (!check) {
+                await fetch(`${this.bookUrl}/${id}`,
+                    { method: "DELETE" }
+                )
+                console.log(`ID: ${id} o'chirildi!`);
+            } else {
+                console.log(`${id} bunday id topilmmadi`);
+            }
+        } catch (error) {
+            console.log('Error ' + error.message);
         }
     }
 }
@@ -316,5 +351,3 @@ const book = new Book()
 // book.updateTitle(17, "Harry Potter 8");
 // book.delete(17)
 // book.readAllBook()
-
-
