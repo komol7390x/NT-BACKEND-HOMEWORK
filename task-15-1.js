@@ -122,7 +122,7 @@ async function getProductsByPrices(start, stop) {
         const res = await fetch(url).then(res => res.json())
         for (let item of res) {
             if (start <= item.price && stop >= item.price) {
-                console.log(item);
+                print(item)
             }
         }
     } catch (error) {
