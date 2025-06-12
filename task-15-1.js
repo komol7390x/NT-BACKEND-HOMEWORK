@@ -3,6 +3,14 @@ let url = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/produ
 function print(object) {
     console.log(`ID: ${object.id}\nName: ${object.name}\nPrice: ${object.price}\nQuantity: ${object.quantity}\nCatagory: ${object.catagory}\n------------------------`);
 }
+async function postDelete(oldUrl,newUrl) {
+    for (let item of oldUrl) {
+        await removeProduct(item.id)
+    }
+    for (let item of newUrl) {
+        await addProduct(item.name,item.price,item.quantity,item.catagory)
+    }
+}
 
 async function getProducts() {
     try {
@@ -92,16 +100,18 @@ async function sortByCatagory() {
     try {
         const res = await fetch(url).then(res => res.json())
         const sorted = [...res].sort((a, b) => b.catagory.localeCompare(a.catagory));
-        console.log("Sortlandi\n",sorted);
+        await postDelete(res,sorted)
+        console.log("\nSortlandi\n",sorted);
     } catch (error) {
         console.log('Error on fetching users', error);
     }
 }
 async function sortByPrice() {
     try {
-        const res = await fetch(url).then(res => res.json())
-        const sorted = [...res].sort((a, b) => a.price-b.price);
-        console.log("Sortlandi\n", sorted);
+        const res1 = await fetch(url).then(res => res.json())
+        const sorted1 = [...res1].sort((a, b) => a.price-b.price);
+        await postDelete(res1,sorted1)
+        console.log("\nSortlandi\n", sorted1);
     } catch (error) {
         console.log('Error on fetching users', error);
     }
