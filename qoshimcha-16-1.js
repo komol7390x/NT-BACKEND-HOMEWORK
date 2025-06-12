@@ -13,6 +13,14 @@ class Products {
         this.username = username;
         this.password = password;
     }
+    async printUserId(id) {
+        const url = await fetch(this.authorUrl).then(res => res.json())
+        for (let item of url) {
+            if (item.id == id) {
+                this.printUser(item);
+            }
+        }
+    }
     async printUser(item) {  //1-ta obj console chiqarish
         console.log(`ID:${item.id}\nUsername: ${item.username}\nPassword: ${item.password}\nProducts ID: [${item.product}]\n---------------------------------`);
     }
@@ -48,6 +56,7 @@ class Products {
         }
         const res = await fetch(this.authorUrl).then(res => res.json())
         let new1 = [];
+        await this.printUserId(id2)
         for (let item of res) {
             if (item.id == id2) {
                 if (!item.product.includes(idNumber)) {
@@ -59,6 +68,7 @@ class Products {
                 }
             }
         }
+        await this.printUserId(id2)
         if (new1.length != 0) {
             await fetch(`${this.authorUrl}/${id2}`, {
                 method: "PUT",
@@ -129,13 +139,12 @@ class Products {
     }
     async updatePassword(id, pass) {
         const newPass = await this.enCode(pass)
-        console.log(newPass);
-
         await fetch(`${this.authorUrl}/${id}`, {
             method: "PUT",
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ password: newPass })
         })
+        await this.printUserId(id)
         console.log('Parol yengilandi');
     }
     async isAlphaNumeric(str) {
@@ -150,13 +159,13 @@ const product = new Products();
 // product.addProduct("Saloh2020", "zxcv123!@");
 // product.addProduct("Begzod2023", "enter123!@");
 // product.addProduct("Dilshod2025", "exit123!@");
-// product.updatePassword(2,"abcdw!@")
-// product.addProductId(5, 13)
-// product.deCode(1, "exit123!@")
-// product.deCode(1, "exit123!@1")
-// product.authorPrint();
+// product.updatePassword(2, "abcdw!@")
+// product.addProductId(5, 2)
+// product.deCode(5, "exit123!@")
+// product.deCode(5, "exit123!@1")
+// product.getProducts(2)
 
-product.getProducts(2)
+// product.authorPrint();
 
 // console.log(111);
 
