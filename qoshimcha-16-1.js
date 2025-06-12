@@ -35,8 +35,34 @@ class Products {
             return
         }
     }
-    async addProductId() {
-        // ------------
+    async addProductId(id2, idNumber) {
+        if (typeof idNumber != 'number') {
+            console.log('Kiritilgan id son bolish kerak');
+            return
+        }
+        const res = await fetch(this.authorUrl).then(res => res.json())
+        let new1=[];
+        for (let item of res) {
+            if (item.id == id2) {
+                if (!item.product.includes(idNumber)) {
+                    new1 = item.product
+                    new1.push(idNumber)
+                } else {
+                    console.log(`Product id: ${idNumber} alaqachon bunday id bor!`);
+                    return
+                }
+            }
+        }
+        if (new1.length!=0) {
+            await fetch(`${this.authorUrl}/${id2}`, {
+                method: "PUT",
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ product: new1 })
+            })
+            console.log(`ID:${id2} ma'lumotlar qo'shildi\n`)
+        } else {
+            console.log(`ID:${id2} foydalanuvchi yo'q\n`)
+        }
     }
     async getProducts() {
         // -------------
@@ -69,11 +95,12 @@ class Products {
     }
 
     async isAlphaNumeric(str) {
-        return /^[a-z0-9]+$/.test(str);
+        return "qwertyuiopasdfghjklzxcvbnm1234567890".includes(str)
     }
 
 }
 
 const product = new Products()
-// await product.addProduct("11Komol111", "7390x_#")
-// await product.authorPrint()
+// await product.addProduct("Komol73", "7390x_#")
+// await product.addProductId(2, 6)
+await product.authorPrint();
