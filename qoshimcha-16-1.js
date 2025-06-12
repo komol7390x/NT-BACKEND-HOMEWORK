@@ -1,6 +1,6 @@
 class Products {
-    authorUrl = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/LoginPassword';
-    productUrl = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/product';
+    authorUrl = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/loginPass';
+    bookUrl = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/book';
 
     shifr = {
         a: 'cZf', b: 'Xkq', c: 'pDh', d: 'LmY', e: 'qJo', f: 'BaE', g: 'zWn', h: 'nVg', i: 'JtR',
@@ -9,14 +9,21 @@ class Products {
         0: 'eTR', 1: 'Wkz', 2: 'fAb', 3: 'QyJ', 4: 'uXm', 5: 'Bpo', 6: 'nKs', 7: 'ZqL', 8: 'Ghv', 9: 'YcD'
         //   console.log(shifr);
     };
-    constructor() {
+    constructor(username, password) {
         this.newPass
+        this.username = username;
+        this.password = password;
     }
-    async authorPrint() {
+    async printUser(item) {  //1-ta obj console chiqarish
+        console.log(`ID:${item.id}\nUsername: ${item.username}\nPassword: ${item.password}\nProducts ID: [${item.product}]\n---------------------------------`);
+    }
+    async authorPrint() {  // Hammasini console chiqarish
         const url = await fetch(this.authorUrl).then(res => res.json())
-        console.log(url);
+        for (let item of url) {
+            this.printUser(item)
+        }
     }
-    async addProduct(login, pass) {
+    async addProduct(login, pass) { //  username va pass qo'shish
         const check = await this.checkUsername(login)
         if (check) {
             this.newPass = await this.enCode(pass);
@@ -35,13 +42,13 @@ class Products {
             return
         }
     }
-    async addProductId(id2, idNumber) {
+    async addProductId(id2, idNumber) { //Product Id qoshish
         if (typeof idNumber != 'number') {
             console.log('Kiritilgan id son bolish kerak');
             return
         }
         const res = await fetch(this.authorUrl).then(res => res.json())
-        let new1=[];
+        let new1 = [];
         for (let item of res) {
             if (item.id == id2) {
                 if (!item.product.includes(idNumber)) {
@@ -53,7 +60,7 @@ class Products {
                 }
             }
         }
-        if (new1.length!=0) {
+        if (new1.length != 0) {
             await fetch(`${this.authorUrl}/${id2}`, {
                 method: "PUT",
                 headers: { 'Content-type': 'application/json' },
@@ -67,7 +74,7 @@ class Products {
     async getProducts() {
         // -------------
     }
-    async enCode(pass) {
+    async enCode(pass) {  // Shifrlash
         pass = pass.toString().toLowerCase()
         let str = [];
         for (let item of pass) {
@@ -81,10 +88,24 @@ class Products {
         str = str.join(" ")
         return str
     }
-    static async deCode(oldPass, newPass) {
-        // -------------
+    async deCode(id, oldPass) {
+        const res = await fetch(this.authorUrl).then(res => res.json())
+        let oldPass1 = "";
+        for (let item of res) {
+            if (item.id == id) {
+                oldPass1 = item.password
+            }
+        }
+        const resPass = await this.enCode(oldPass);
+        if (resPass == oldPass1) {
+            console.log(`ID:${id}-parol o'xshash`);
+            return
+        } else {
+            console.log(`ID:${id}-parol notog'ri`);
+            return
+        }
     }
-    async checkUsername(login1) {
+    async checkUsername(login1) { // Username tekshirish
         const res = await fetch(this.authorUrl).then(res => res.json())
         for (let item of res) {
             if (item.username == login1) {
@@ -93,14 +114,32 @@ class Products {
         }
         return true
     }
+    async updatePassword(id, pass) {
+        const newPass = await this.enCode(pass)
+        console.log(newPass);
 
+        await fetch(`${this.authorUrl}/${id}`, {
+            method: "PUT",
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ password: newPass })
+        })
+        console.log('Parol yengilandi');
+    }
     async isAlphaNumeric(str) {
         return "qwertyuiopasdfghjklzxcvbnm1234567890".includes(str)
     }
-
 }
 
-const product = new Products()
-// await product.addProduct("Komol73", "7390x_#")
-// await product.addProductId(2, 6)
-await product.authorPrint();
+const product = new Products();
+// product.addProduct("Komol7390", "7390x!@");
+// product.addProduct("Jamshid20001", "qwerty!@#");
+// product.addProduct("Saloh2020", "zxcv123!@");
+// product.addProduct("Begzod2023", "enter123!@");
+// product.addProduct("Dilshod2025", "exit123!@");
+// product.updatePassword(2,"abcdw!@")
+// product.addProductId(5, 5);
+// product.addProductId(5, 9);
+// product.addProductId(5, 14);
+// product.deCode(1, "exit123!@")
+// product.deCode(1, "exit123!@1")
+product.authorPrint();
