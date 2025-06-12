@@ -13,7 +13,7 @@ class Products {
         this.username = username;
         this.password = password;
     }
-    async printUserId(id) {
+    static async printUserId(id) {
         const url = await fetch(this.authorUrl).then(res => res.json())
         for (let item of url) {
             if (item.id == id) {
@@ -21,7 +21,7 @@ class Products {
             }
         }
     }
-    async printUser(item) {  //1-ta obj console chiqarish
+    static async printUser(item) {  //1-ta obj console chiqarish
         console.log(`ID:${item.id}\nUsername: ${item.username}\nPassword: ${item.password}\nProducts ID: [${item.product}]\n---------------------------------`);
     }
     async authorPrint() {  // Hammasini console chiqarish
@@ -80,7 +80,7 @@ class Products {
             console.log(`ID:${id2} foydalanuvchi yo'q\n`)
         }
     }
-    async getProductsID(id) {  //id boyicha book store korsatvoti
+    static async getProductsID(id) {  //id boyicha book store korsatvoti
         let url = await fetch('https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/book').then(res => res.json())
         for (let item of url) {
             if (item.id == id)
@@ -97,7 +97,7 @@ class Products {
             }
         }
     }
-    async enCode(pass) {  // Shifrlash
+    static async enCode(pass) {  // Shifrlash
         pass = pass.toString().toLowerCase()
         let str = [];
         for (let item of pass) {
@@ -128,7 +128,7 @@ class Products {
             return
         }
     }
-    async checkUsername(login1) { // Username tekshirish
+    static async checkUsername(login1) { // Username tekshirish
         const res = await fetch(this.authorUrl).then(res => res.json())
         for (let item of res) {
             if (item.username == login1) {
@@ -147,7 +147,7 @@ class Products {
         await this.printUserId(id)
         console.log('Parol yengilandi');
     }
-    async isAlphaNumeric(str) {
+    static async isAlphaNumeric(str) {
         return "qwertyuiopasdfghjklzxcvbnm1234567890".includes(str)
     }
 }
