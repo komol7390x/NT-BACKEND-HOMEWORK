@@ -1,7 +1,6 @@
 class Products {
     authorUrl = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/loginPass';
     bookUrl = 'https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/book';
-
     shifr = {
         a: 'cZf', b: 'Xkq', c: 'pDh', d: 'LmY', e: 'qJo', f: 'BaE', g: 'zWn', h: 'nVg', i: 'JtR',
         j: 'yAx', k: 'fLi', l: 'Ryb', m: 'MkU', n: 'oQz', o: 'tCv', p: 'HsA', q: 'dIe', r: 'KvM',
@@ -71,8 +70,22 @@ class Products {
             console.log(`ID:${id2} foydalanuvchi yo'q\n`)
         }
     }
-    async getProducts() {
-        // -------------
+    async getProductsID(id) {  //id boyicha book store korsatvoti
+        let url = await fetch('https://684967eb45f4c0f5ee714471.mockapi.io/products/komol7390x/book').then(res => res.json())
+        for (let item of url) {
+            if (item.id == id)
+                console.log(`ID:${item.id}\nTitle:${item.title}\nDescription:${item.description}\nJanr:${item.genre}\n----------------------------`);
+        }
+    }
+    async getProducts(id) { //id boyicha topib getProductsID() id bervoti
+        const url = await fetch(this.authorUrl).then(res => res.json())
+        for (let item of url) {
+            if (item.id == id) {
+                for (let keyId of item.product) {
+                    this.getProductsID(keyId)
+                }
+            }
+        }
     }
     async enCode(pass) {  // Shifrlash
         pass = pass.toString().toLowerCase()
@@ -88,7 +101,7 @@ class Products {
         str = str.join(" ")
         return str
     }
-    async deCode(id, oldPass) {
+    async deCode(id, oldPass) { //deshifrlanvoti
         const res = await fetch(this.authorUrl).then(res => res.json())
         let oldPass1 = "";
         for (let item of res) {
@@ -131,15 +144,19 @@ class Products {
 }
 
 const product = new Products();
+
 // product.addProduct("Komol7390", "7390x!@");
 // product.addProduct("Jamshid20001", "qwerty!@#");
 // product.addProduct("Saloh2020", "zxcv123!@");
 // product.addProduct("Begzod2023", "enter123!@");
 // product.addProduct("Dilshod2025", "exit123!@");
 // product.updatePassword(2,"abcdw!@")
-// product.addProductId(5, 5);
-// product.addProductId(5, 9);
-// product.addProductId(5, 14);
+// product.addProductId(5, 13)
 // product.deCode(1, "exit123!@")
 // product.deCode(1, "exit123!@1")
-product.authorPrint();
+// product.authorPrint();
+
+product.getProducts(2)
+
+// console.log(111);
+
