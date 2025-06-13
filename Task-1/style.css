@@ -1,66 +1,103 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f7fa;
     margin: 0;
     padding: 0px;
 }
-#title2{
-    text-align: center;
 
+#title2 {
+    text-align: center;
+    margin-top: 30px;
 }
+
 #wrapper {
-    max-width: calc(100% - 200px);
+    max-width: 1400px;
     margin: 0 auto;
-    width: 80%;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid silver;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
 }
 .container {
-    display: inline-table;
+    display: none;
+    margin: 20px;
     border-radius: 10px;
     width: 300px;
-    height: 400px;
-    margin: 30px 30px;
     border: 1px solid silver;
-    /* max-width: calc(100% - 400px); */
+    padding-bottom: 10px;
+    background: white;
 }
-.image1{
+
+.show {
+    display: inline-block;
+}
+
+.image1 {
     width: 280px;
     margin: 10px;
-    text-align: center;
+    border-radius: 10px;
 }
-.productName,.rating,.oldPrice,.newPrice,.newPrice2{
+
+.productName,
+.rating,
+.oldPrice,
+.newPrice,
+.newPrice2 {
     margin-left: 15px;
+    text-align: left;
 }
-.productName{
+.productName {
     margin-top: -1px;
     font-size: 17px;
-    font-weight: 200;
+    font-weight: 600;
 }
-.rating,.stock{
-    font-size: 15px;
+
+.rating,
+.stock {
     color: rgb(104, 103, 103);
 }
-.newPrice{
-    display: block;
+.rating{
+    margin-left: 14px;
+    text-align: left;
+}
+.newPrice {
+    width: 150px;
     background-color: #ffe600;
     padding: 5px 10px;
-    width: 150px;
     border-radius: 8px;
 }
-.oldPrice{
-    margin-top: -5px;
+
+.oldPrice {
     color: rgb(153, 153, 153);
     font-weight: 100;
     font-size: 15px;
-    text-decoration: line-through
+    text-decoration: line-through;
 }
+
+.newPrice2 {
+    font-weight: bold;
+    font-size: 16px;
+    font-weight: 200;
+}
+
 button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #ffe600;
     border: 1px solid silver;
     border-radius: 10px;
-    width: 500px;
+    width: 250px;
+    margin: 30px auto 0;
+    display: block;
 }
-button:active{
-    transform: scale(0.9);
+
+button:active {
+    transform: scale(0.95);
 }
