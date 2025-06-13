@@ -22,44 +22,62 @@ class Product {
         const takeRes = await this.urlInfo()
         takeRes.forEach(val => {
             const wrapper = document.getElementById('wrapper')
-            const constainer = document.createElement('div')
+            const container = document.createElement('div')
             const title = document.createElement('h4')
             const rating = document.createElement('span');
             const stock = document.createElement('span');
             const oldPrice = document.createElement('h5');
             const newPrice = document.createElement('p')
             const newPrice2 = document.createElement('p')
+            const image=document.createElement('img')
 
-            constainer.classList.add('container')
+            container.classList.add('container')
+            container.id='container'
             title.classList.add('productName');
             rating.classList.add('rating');
             stock.classList.add('stock');
             oldPrice.classList.add('oldPrice');
             newPrice.classList.add('newPrice')
             newPrice2.classList.add('newPrice2')
+            image.classList.add('image1');
+
+            image.src = './image-1.jpg'
+            container.appendChild(image)
 
             const price1 = Math.floor(val.price * 1000)
             const discount = Math.floor(price1 * (1 - (val.discountPercentage / 100)))
 
             title.textContent = val.title
-            constainer.appendChild(title)
+            container.appendChild(title)
 
             rating.textContent = `⭐️ ${val.rating}`
-            constainer.appendChild(rating)
+            container.appendChild(rating)
 
             stock.textContent = ` ( ${val.stock} rating)`
-            constainer.appendChild(stock)
+            container.appendChild(stock)
 
             newPrice.textContent = `${Math.floor(discount / 12)} sum/month`
-            constainer.appendChild(newPrice)
+            container.appendChild(newPrice)
 
             oldPrice.textContent = `${price1} sum`
-            constainer.appendChild(oldPrice)
+            container.appendChild(oldPrice)
 
             newPrice2.textContent = `${discount} sum`
-            constainer.appendChild(newPrice2)
+            container.appendChild(newPrice2)
 
-            wrapper.appendChild(constainer)
+            container.classList.add('product');
+            if (val.id <= 4) {
+                container.classList.add('show');
+            }
+
+            wrapper.appendChild(container)
+
+            const btn = document.getElementById('showAllBtn');
+            btn.addEventListener('click', () => {
+                const wrapper = document.querySelector('.container');
+                wrapper.forEach(item => item.classList.add('show'));
+                btn.style.display='none'
+            })
         })
         return
         try {

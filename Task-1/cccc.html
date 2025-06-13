@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mahsulotlar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product {
+            width: 23%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            text-align: center;
+            display: none;
+            /* Avval yashiringan */
+        }
+
+        .product.show {
+            display: block;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Mahsulotlar</h2>
+
+    <div class="products" id="productsContainer">
+        <div class="product show">iPhone 15</div>
+        <div class="product show">Samsung S24</div>
+        <div class="product show">Redmi Note 13</div>
+        <div class="product show">MacBook Air</div>
+        <div class="product">Asus Zenbook</div>
+        <div class="product">HP Pavilion</div>
+        <div class="product">Dell XPS</div>
+        <div class="product">Acer Aspire</div>
+    </div>
+
+    <button id="showAllBtn">Barchasini ko‘rsatish</button>
+
+    <script>
+        const btn = document.getElementById('showAllBtn');
+        const allProducts = document.querySelectorAll('.product');
+
+        btn.addEventListener('click', () => {
+            allProducts.forEach(product => {
+                product.classList.add('show');
+            });
+
+            btn.style.display = 'none'; // Tugmani yashirish
+        });
+    </script>
+
+</body>
+
+</html>
