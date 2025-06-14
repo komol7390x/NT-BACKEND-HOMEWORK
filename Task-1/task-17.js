@@ -20,7 +20,7 @@ class Product {
     async getInfo() {
         const takeRes = await this.urlInfo();
         const wrapper = document.getElementById('wrapper');
-
+        const load = document.getElementById('load');
         takeRes.forEach(val => {
             const container = document.createElement('div');
             const title = document.createElement('h4');
@@ -71,6 +71,7 @@ class Product {
 
             wrapper.appendChild(container);
         });
+        load.style.display = 'none'
         const btn = document.getElementById('showAllBtn');
         btn.addEventListener('click', () => {
             const allProducts = document.querySelectorAll('.container');
