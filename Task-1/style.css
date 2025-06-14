@@ -32,9 +32,12 @@ body {
     width: 300px;
     border: 1px solid silver;
     padding-bottom: 10px;
-    background: white;
+    background: rgba(250, 203, 227, 0.365);
+    transition: transform 0.5s;
 }
-
+.container:hover{
+    transform: scale(0.95);
+}
 .show {
     display: inline-block;
 }
@@ -57,6 +60,7 @@ body {
     margin-top: -1px;
     font-size: 17px;
     font-weight: 600;
+    font-family:cursive;
 }
 
 .rating,
@@ -96,8 +100,10 @@ button {
     width: 250px;
     margin: 30px auto 0;
     display: block;
+    transition: transform 0.2s;
+
 }
 
-button:active {
+button:hover {
     transform: scale(0.95);
 }

@@ -52,7 +52,7 @@ class Product {
             rating.textContent = `⭐️ ${val.rating}`;
             container.appendChild(rating);
 
-            stock.textContent = ` (${val.stock} stock)`;
+            stock.textContent = ` (${val.stock} rating)`;
             container.appendChild(stock);
 
             newPrice.textContent = `${Math.floor(discount / 12)} sum/month`;
