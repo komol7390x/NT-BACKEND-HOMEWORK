@@ -4,12 +4,14 @@
     margin: 100px 300px;
     border: 1px solid silver;
     padding: 20px;
-    gap: 30px
+    gap: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 .uzb_btn,.eng_btn{
     font-family:sans-serif;
     width: 400px;
-    height: 40px;
+    height: 50px;
     border: 1px solid silver;
     border-radius: 10px;
     color: blueviolet;
@@ -20,4 +22,74 @@
     font-style:normal;
     background-color:white;
 }
-
+#text_area{
+    font-size: 22px;
+    font-family: sans-serif;
+    display: block;
+    color: rgb(124, 113, 113);
+    background-color: rgba(236, 223, 207, 0.205);
+    height: 250px;
+    margin-top: 20px;
+    width: 385px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    padding:15px 0px 0px 15px;
+    transition: 1s;
+}
+#text_area:focus{
+    border: none;
+    outline: none;
+}
+#icon{
+    margin-left: -5px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+#str-2,#str-2c{
+    margin-left: 15px;
+    margin-top: 15px;
+    font-size: 22px;
+}
+#str-2{
+    color: rgba(0, 0, 0, 0.445) ;
+    transition: 1s;
+}
+#str-2c{
+    margin-right: 10px;
+    margin-top:150px;
+    background-color: rgba(104, 171, 248, 0.555);
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.5s;
+    color: white;
+}
+#str-2:hover{
+    color: rgb(255, 255, 255);
+    transform: scale(1.2);
+    border-radius: 50%;
+    background-color: rgb(126, 126, 126);
+    padding: 5px;
+}
+#str-2c:hover{
+    display: block;
+    transform: scale(1.2);
+    background-color: rgba(69, 152, 247, 0.973);
+}
+#str-2c:active{
+    background-color: rgba(248, 104, 104, 0.555);
+}
+#str-2:active {
+    color: rgb(126, 126, 126);
+    transform: scale(1.2);
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid rgb(170, 170, 170);
+}
+#text_area:hover{
+    transform: scale(0.95);
+    background-color: white;
+    border: 1px solid silver;
+}
