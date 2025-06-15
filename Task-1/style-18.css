@@ -62,13 +62,23 @@
     width: 100px;
 }
 .btnTr1,.btnTr2{
+    color: white;
     padding: 0px 10px;
     border-radius: 10px;
     border: none;
     height: 30px;
     background-color: rgba(128, 19, 0, 0.363);
+    transition: 0.5s;
 }
 .btnTr2{
     margin-top: 60px;
     background-color: rgba(0, 128, 0, 0.363);
+}
+.btnTr2:hover{
+    transform: scale(1.1);
+    background-color: rgba(0, 128, 0, 0.89);
+}
+.btnTr1:hover {
+    transform: scale(1.1);
+    background-color:rgba(128, 19, 0, 0.877);
 }
