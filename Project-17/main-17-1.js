@@ -40,7 +40,7 @@ class Product {
             newPrice2.classList.add('newPrice2');
             image.classList.add('image1');
 
-            image.src = './image.png';
+            image.src = `${val.thumbnail}`;
             container.appendChild(image);
 
             const price1 = Math.floor(val.price * 1000);
