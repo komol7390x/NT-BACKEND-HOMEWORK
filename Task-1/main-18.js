@@ -25,7 +25,7 @@
 
 async function translateText(text, from = "uz", to = "en") {
     try {
-        const response = await fetch("https://libretranslate.de/translate", {
+        const response = await fetch("https://translate.argosopentech.com/translate", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -34,18 +34,18 @@ async function translateText(text, from = "uz", to = "en") {
                 q: text,
                 source: from,
                 target: to,
-                format: "text"
+                type: "module",
+                format: "text",
             })
         });
 
         if (!response.ok) {
             throw new Error(`Server javobi: ${response.status} ${response.statusText}`);
         }
-
         const data = await response.json();
         console.log(`Tarjima: ${data.translatedText}`);
     } catch (error) {
-        console.error("Xatolik:", error.message);
+        console.error("Xatolik: ", error.message)
     }
 }
 
