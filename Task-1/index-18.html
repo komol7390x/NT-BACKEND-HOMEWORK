@@ -10,21 +10,22 @@
 <body>
     <div id="wrapper">
         <div id="english_tr">
-            <button class="eng_btn">English</button><br>
-            <textarea name="text" id="text_area" spellcheck="false"></textarea>
+            <button class="eng_btn" id="engB">English</button><br>
+            <textarea name="text" id="text_area_left" spellcheck="false"></textarea>
         </div>
         <div id="icon">
             <i class="fas fa-arrow-right" id="str-2"></i>
             <div class="btnTr">
-                <button class="btnTr1" onclick="engUzb()"> ENG -> UZB</button>
-                <button class="btnTr2" onclick="uzbEng()"> UZB -> ENG</button>
+                <button class="btnTr1" id="enguzb" > ENG => UZB</button>
+                <button class="clear" id="clear" > CLEAR</button>
+                <button class="btnTr2" id="uzbeng"> UZB => ENG</button>
             </div>
         </div>
         <div id="uzbek_tr">
-            <button class="uzb_btn">O'zbek</button><br>
-            <textarea name="text" id="text_area" spellcheck="false"></textarea>
+            <button class="uzb_btn" id="uzbB">O'zbek</button><br>
+            <textarea name="text" id="text_area_right" spellcheck="false"></textarea>
         </div>
     </div>
-    <!-- <script src=""></script> -->
+    <script src="./main-18.js"></script>
 </body>
 </html>

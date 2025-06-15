@@ -1,7 +1,7 @@
 #wrapper{
     font-family:fantasy;
     display: inline-flex;
-    margin: 100px 300px;
+    margin: 100px 200px;
     border: 1px solid silver;
     padding: 20px;
     gap: 15px;
@@ -22,7 +22,7 @@
     font-style:normal;
     background-color:white;
 }
-#text_area{
+#text_area_left,#text_area_right{
     font-size: 22px;
     font-family: sans-serif;
     display: block;
@@ -37,12 +37,14 @@
     padding:15px 0px 0px 15px;
     transition: 0.3s;
 }
-#text_area:focus{
+#text_area_left:focus,
+#text_area_right:focus{
     border: none;
     outline: none;
 }
-#text_area:hover{
-    transform: scale(0.95);
+#text_area_left:hover,
+#text_area_right:hover{
+    transform: scale(0.99);
     background-color: white;
     border: 1px solid silver;
 }
@@ -56,9 +58,23 @@
     font-size: 22px;
     color: rgba(0, 0, 0, 0.445);
 }
+.clear{
+    margin-top: 40px;
+    width: 100px;
+    background-color: rgba(111, 151, 224, 0.623);
+    border: none;
+    height: 30px;
+    color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.clear:hover {
+    transform: scale(1.1);
+    background-color: rgb(95, 146, 241);
+}
 .btnTr{
     display: inline-block;
-    margin-top: 90px;
+    margin-top: 70px;
     width: 100px;
 }
 .btnTr1,.btnTr2{
@@ -71,7 +87,7 @@
     transition: 0.5s;
 }
 .btnTr2{
-    margin-top: 60px;
+    margin-top: 40px;
     background-color: rgba(0, 128, 0, 0.363);
 }
 .btnTr2:hover{
