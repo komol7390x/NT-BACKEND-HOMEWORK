@@ -47,4 +47,15 @@ var maxProfit = function (prices) {
     }
     return maxProfit;
 };
+// ------------------------------------------------------------------
+// TASK - 53
+var maxSubArray = function(nums) {
+    let maxSum = nums[0];
+    let arrSum = nums[0];
 
+    for (let i = 1; i < nums.length; i++) {
+        arrSum = Math.max(nums[i], arrSum + nums[i]);
+        maxSum = Math.max(maxSum, arrSum);
+    }
+    return maxSum;
+};
